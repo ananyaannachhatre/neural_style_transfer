@@ -5,7 +5,6 @@ It blends the content of one image with the style of another, producing a comple
 The code is modularized for clarity, reusability, and easy customization.
 
 ## 📂 Project Structure
-text
 - main.py                 # Entry point to run style transfer pipeline
 - image_loader.py         # Loads and preprocesses images
 - style_content_model.py  # Defines VGG19 feature extraction model
@@ -52,12 +51,12 @@ content_weight = 1e4
 
 🖼 Workflow
 Here’s how the system works step-by-step:
-# - Image Loading (image_loader.py)
+- Image Loading (image_loader.py)
 Reads content and style images from local disk/URL
 Resizes to a max dimension while maintaining aspect ratio
 Normalizes pixel values to
 
-# - VGG19 Feature Extraction (style_content_model.py)
+- VGG19 Feature Extraction (style_content_model.py)
 Loads pretrained VGG19 without the fully connected layers
 Extracts intermediate feature maps from selected layers
 Choosing Layers for Content & Style
@@ -73,14 +72,14 @@ block5_conv1 → large abstract style patterns
 
 These give multi-scale style representation via Gram matrices.
 
-# - Style Transfer Optimization (style_transfer.py)
+- Style Transfer Optimization (style_transfer.py)
 Initializes generated image as the content image
 Computes content loss (MSE in content layer features)
 Computes style loss (MSE in Gram matrices) across style layers
 Minimizes: total_loss = content_weight * content_loss + style_weight * style_loss
 Uses Adam optimizer with frequent clipping to keep pixel range valid.
 
-# - Post-Processing (smoothing.py)
+- Post-Processing (smoothing.py)
 Uses Total Variation Denoising to reduce edge noise for a cleaner image.
 
 ## 🎯 Why These Specific VGG19 Layers?
