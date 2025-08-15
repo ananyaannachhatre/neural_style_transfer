@@ -40,10 +40,10 @@ requirements.txt contains:
 Run the full style transfer:
 python main.py
 In main.py, change:
-# Content & Style image paths
+Content & Style image paths
 content_url = "/path/to/your/content.jpg"
 style_url = "/path/to/your/style.jpg"
-# Training params
+Training params
 epochs = 200
 steps_per_epoch = 100
 style_weight = 1e-2
